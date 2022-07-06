@@ -1,0 +1,1 @@
+Playground for Smigla's vanilla Javascript course
