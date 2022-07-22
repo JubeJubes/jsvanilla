@@ -170,8 +170,8 @@ nav {
   font-size: 1.5rem;
   color: var(--clr-primary-5);
   background: transparent;
-  border-color: transparent;
-  transition: var(--transition);
+  border-color: transparent; 
+  transition: var(--transition); 
   cursor: pointer;
 }
 .nav-toggle:hover {
@@ -199,9 +199,9 @@ nav {
   display: none;
 }
 .links {
-  /* height: 0;
+  height: 0;
   overflow: hidden;
-  transition: var(--transition); */
+  transition: var(--transition);
 }
 .show-links {
   height: 10rem;

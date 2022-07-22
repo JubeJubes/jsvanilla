@@ -1,4 +1,6 @@
 // local reviews data
+
+
 const reviews = [
   {
     id: 1,
@@ -37,3 +39,36 @@ const reviews = [
       "Edison bulb put a bird on it humblebrag, marfa pok pok heirloom fashion axe cray stumptown venmo actually seitan. VHS farm-to-table schlitz, edison bulb pop-up 3 wolf moon tote bag street art shabby chic. ",
   },
 ];
+let curKey = Math.floor(Math.random()*reviews.length)
+let prev = document.querySelector('.fa-chevron-left')
+let next = document.querySelector('.fa-chevron-right')
+let random = document.querySelector('.random-btn')
+
+document.body.onload = ()=> {
+ populate()
+}
+
+prev.addEventListener("click",()=>
+{
+  console.log("left",curKey)
+  curKey = curKey===0? 3:curKey-1
+  populate()
+})
+next.addEventListener("click",()=>
+{
+  curKey= curKey===3? 0:curKey+1
+  populate()
+})
+random.addEventListener("click",()=>
+{
+  curKey = Math.floor(Math.random()*reviews.length)
+  populate()
+})
+
+
+const populate = () => {
+document.getElementById('author').textContent = reviews[curKey].name
+document.getElementById('job').textContent= reviews[curKey].job
+document.getElementById('info').textContent= reviews[curKey].text
+document.getElementById('person-img').src= reviews[curKey].img
+}

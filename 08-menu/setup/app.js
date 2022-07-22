@@ -70,5 +70,80 @@ const menu = [
     price: 16.99,
     img: "./images/item-9.jpeg",
     desc: `skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing.`,
+    
   },
+  {
+    id: 10,
+    title: "Chicken buddy",
+    category: "dinner",
+    price: 16.99,
+    img: "./images/item-9.jpeg",
+    desc: `skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing.`,
+    
+  }
 ];
+
+
+window.onload = (e) => {
+  dispFunc(menu)
+  btnDisplay()
+}
+const dispFunc = (menuItems) => {
+  let displayMenu = menuItems.map(el=>{
+    return( `<article class="menu-item">
+              <img src = ${el.img} class ="photo" alt=""></img>
+              <div class="item-info">
+                <header>
+                  <h4>${el.title}</h4>
+                  <h4 class="price">$${el.price}</h4>
+                </header>
+                <p class="item-text">${el.desc}</p>
+              </div>
+            </article>`)
+
+  })
+  const mainArea = document.querySelector('.section-center') 
+  let menuHtml = displayMenu.join(" ")
+  mainArea.innerHTML = menuHtml
+}
+
+const btnDisplay = ()=> {
+  let unique = menu.reduce((unique,item)=> {
+    if(unique.includes(item.category)) return unique 
+    return [...unique,item.category]
+  },[])
+  
+  
+  const dispBtni = unique.map (el=>{
+    return (
+      `<button class="filter-btn" type ="button">${el}</button>`
+    )
+  })
+  
+  dispBtni.unshift(`<button class="filter-btn" type ="button">all</button>`)
+  const disBtn = dispBtni.join('')
+  
+  document.querySelector('.btn-container').innerHTML = disBtn
+
+
+  const f_Array = document.querySelectorAll('.filter-btn')
+  f_Array.forEach((el)=>{
+    el.addEventListener("click",(event)=>{
+      console.log("hellloooo")
+    const filteredArray = (el.textContent=== "all")?
+              menu:
+              menu.filter((item)=>item.category===el.textContent)
+    
+    dispFunc(filteredArray)
+    })
+  })
+
+}
+
+
+
+
+
+
+
+
