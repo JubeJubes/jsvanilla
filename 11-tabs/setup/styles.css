@@ -248,11 +248,21 @@ About
 }
 /* hide content */
 .content {
-  display: none;
+  /* display: none; */
+  /* visibility: hidden; */
+  opacity:0;
+  height:0;
+  
+  
 }
 .tab-btn.active {
   background: var(--clr-white);
 }
 .content.active {
-  display: block;
+  /* display: block; */
+  height:100%;
+  opacity:1;
+  /* visibility: visible; */
+  transition: opacity .4s;
+
 }
